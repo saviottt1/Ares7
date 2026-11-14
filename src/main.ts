@@ -8,7 +8,11 @@ import { Ui, type MissionView } from './ui/ui'
 import { MissionHistory } from './ui/missionHistory'
 import { Leaderboard } from './ui/leaderboard'
 import { NasaDashboard } from './ui/nasaDashboard'
+import { ResearchDashboard } from './ui/researchDashboard'
 import { outpostTuning } from './game/outpostTuning'
+import { fetchLatestFlare } from './api/nasaClient'
+import { initAuth } from './db/auth'
+import { saveMission } from './db/missionPersistence'
 
 const root = document.querySelector<HTMLElement>('#app')
 if (!root) throw new Error('Missing game root')
@@ -118,6 +122,10 @@ function continueMission(): void {
       safeWrite('redline.bestStars', String(bestStars))
       feedback = 'New best mission rating.'
     }
+    // Persist mission to Supabase (fire-and-forget — failure never blocks gameplay)
+    if (!demoActive) {
+      void saveMission(state, results, practice ? 'practice' : 'campaign', seed, site, allocation)
+    }
     render()
     return
   }
@@ -213,28 +221,40 @@ function coachHint(): void {
   render()
 }
 
+/**
+ * syncDonki — now routes through nasaClient which uses the Supabase Edge Function proxy
+ * when VITE_SUPABASE_URL is set, or DEMO_KEY fallback for GitHub Pages.
+ * The private NASA_API_KEY is NEVER bundled into the frontend.
+ */
 async function syncDonki(): Promise<void> {
   if (!practice || mode !== 'judge') return
   syncing = true
   liveLabel = 'Syncing NASA DONKI…'
   render()
   try {
-    const endDate = new Date()
-    const start = new Date(endDate.getTime() - 30 * 86_400_000).toISOString().slice(0, 10)
-    const end = endDate.toISOString().slice(0, 10)
-    const apiKey = import.meta.env.VITE_NASA_API_KEY || 'DEMO_KEY'
-    const url = `https://api.nasa.gov/DONKI/FLR?startDate=${start}&endDate=${end}&api_key=${encodeURIComponent(apiKey)}`
-    const response = await fetch(url, { signal: AbortSignal.timeout(8000) })
-    if (!response.ok) throw new Error(`DONKI response ${response.status}`)
-    const rows = await response.json() as Array<{ flrID?: string; classType?: string; beginTime?: string }>
-    const flare = rows.filter(row => row.flrID && row.classType && row.beginTime).sort((a, b) => String(b.beginTime).localeCompare(String(a.beginTime)))[0]
-    if (!flare?.flrID || !flare.classType || !flare.beginTime) throw new Error('No recent DONKI flare')
-    const magnitude = Number(flare.classType.match(/^[ABCMX](\d+(?:\.\d+)?)/i)?.[1] ?? 0)
-    const letter = flare.classType[0]?.toUpperCase()
-    // This is a game bucket only. X-ray class does not imply a measured proton dose.
-    const sep = letter === 'X' ? (magnitude >= 9 ? 9.5 : magnitude >= 5 ? 7.5 : magnitude >= 1 ? 5.0 : 1) : letter === 'M' && magnitude >= 5 ? 3.8 : 1
+    const flare = await fetchLatestFlare(30)
+    if (!flare) throw new Error('No recent DONKI flare returned')
+    // This is a game bucket only. X-ray class does NOT imply a measured proton dose.
+    const sep = flare.gameSepBucket
     const last = scenarios[6]
-    scenarios = [...scenarios.slice(0, 6), { ...last, event: `LIVE • ${flare.classType} flare`, classType: flare.classType, sep, flareKey: 'MOD', flareId: { value: flare.flrID, unit: 'NASA DONKI flrID', provenance: 'REAL NASA MEASUREMENT', source: 'Live CCMC DONKI feed', url: 'https://ccmc.gsfc.nasa.gov/tools/DONKI/', verified: true }, date: flare.beginTime, teaching: 'Live flare metadata is real; the game SEP bucket and dose are simplified.', dust: last.dust }]
+    scenarios = [...scenarios.slice(0, 6), {
+      ...last,
+      event: `LIVE • ${flare.classType} flare`,
+      classType: flare.classType,
+      sep,
+      flareKey: 'MOD',
+      flareId: {
+        value: flare.flrId,
+        unit: 'NASA DONKI flrID',
+        provenance: 'REAL NASA MEASUREMENT',
+        source: 'Live CCMC DONKI feed',
+        url: 'https://ccmc.gsfc.nasa.gov/tools/DONKI/',
+        verified: true,
+      },
+      date: flare.beginTime,
+      teaching: 'Live flare metadata is real; the game SEP bucket and dose are simplified educational abstractions.',
+      dust: last.dust,
+    }]
     liveLabel = `LIVE from DONKI · fetched ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC`
     feedback = 'Live flare placed on Sol 7 of practice. The fixed campaign did not change.'
   } catch {
@@ -246,10 +266,13 @@ async function syncDonki(): Promise<void> {
   }
 }
 
-
 const nasaDashboard = new NasaDashboard(root)
 const leaderboard = new Leaderboard(root)
 const missionHistory = new MissionHistory(root)
+const researchDashboard = new ResearchDashboard(root)
+
+// Initialize auth (non-blocking — game works without it)
+void initAuth()
 
 const actions = {
   start: startMission,
@@ -268,10 +291,10 @@ const actions = {
   closeModal: () => { safeWrite('redline.onboardingSeen', '1'); syncFrameLoop() },
   syncDonki,
   demo: () => { demoActive ? stopDemo() : startJudgeDemo() },
-
-openNasaDashboard: () => { void nasaDashboard.open() },
-openLeaderboard: () => { void leaderboard.open() },
-openHistory: () => { void missionHistory.open() },
+  openNasaDashboard: () => { void nasaDashboard.open() },
+  openLeaderboard: () => { void leaderboard.open() },
+  openHistory: () => { void missionHistory.open() },
+  openResearch: () => { researchDashboard.open() },
 }
 ui = new Ui(root, actions)
 try {

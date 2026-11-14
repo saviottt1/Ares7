@@ -40,8 +40,20 @@ jobs:
       - name: Run Test Suite
         run: pnpm test
 
+      - name: Generate OSDR research data
+        run: node scripts/process-osdr984.mjs
+        continue-on-error: true  # OSDR files may not be in CI — pre-generated JSON is committed
+
       - name: Typecheck & Build
         run: pnpm run build
+        env:
+          # Public Supabase keys — safe to expose in built JS (RLS protects data)
+          # Set these in GitHub → Settings → Secrets and Variables → Actions → Variables (not Secrets)
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          # NASA DEMO_KEY is intentionally public — no secret needed for GitHub Pages baseline
+          # To use a private key, store it in the Supabase Edge Function (NASA_API_KEY secret)
+          VITE_NASA_API_KEY: DEMO_KEY
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

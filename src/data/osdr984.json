@@ -1,0 +1,125 @@
+{
+  "_meta": {
+    "generatedAt": "2026-11-14T21:49:55.620Z",
+    "sourceFiles": [
+      "OSD-984_metadata_OSD-984-ISA/i_Investigation.txt",
+      "OSD-984_metadata_OSD-984-ISA/s_OSD-984.txt"
+    ],
+    "provenance": "NASA OSDR RESEARCH METADATA — MOUSE GROUND STUDY",
+    "disclaimer": "This is a mouse ground-based research study, not an astronaut clinical dataset. Absorbed doses in Gy are experimental values, not astronaut effective doses in Sv. No protein abundance data is included — the assay metadata describes experimental design only."
+  },
+  "study": {
+    "identifier": "OSD-984",
+    "geneLabIdentifier": "GLDS-797",
+    "title": "Low-dose Simulated Galactic Cosmic Radiation Exposure After Hindlimb Unloading Has Long-term Impact on Skeletal Muscle Metabolic Proteins",
+    "description": "Spaceflight stressors, including microgravity-induced unloading and galactic cosmic radiation (GCR), acutely disrupt mitochondrial function and contribute to skeletal muscle atrophy. The long-term recovery of muscle mitochondria following combined unloading and radiation exposure remains poorly understood. We investigated protein abundance changes 9-months after recovery from combined unloading and radiation exposure.",
+    "doi": "10.26030/wc0k-st23",
+    "publicationDoi": "10.1152/ajpregu.00014.2026",
+    "publicationTitle": "Low-dose simulated galactic cosmic radiation exposure after hindlimb unloading has long-term impact on skeletal muscle metabolic proteins in female mice",
+    "publicationAuthors": "Martone Matthew, Irving Brian A., Spielmann Guillaume, Johannsen Neil M., Robinson Matthew M., Chancellor Jeffery C., Allaway Heather C. M.",
+    "submissionDate": "15-Apr-2026",
+    "publicReleaseDate": "21-Sep-2026",
+    "osdrUrl": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-984"
+  },
+  "organism": {
+    "species": "Mus musculus",
+    "strain": "C57BL/6J",
+    "sex": "Female",
+    "source": "Jackson Laboratory",
+    "ageAtIrradiation": "6 months",
+    "ageAtCollection": "15 months",
+    "recoveryPeriod": "9 months post-irradiation"
+  },
+  "assay": {
+    "type": "Protein expression profiling",
+    "technology": "Mass spectrometry",
+    "platform": "Orbitrap Exploris 480 (Thermo Fisher)",
+    "tissue": "Left gastrocnemius (skeletal muscle)",
+    "preparationFacility": "IDeA National Resource for Quantitative Proteomics, UAMS",
+    "irradiationFacility": "NASA Space Radiation Laboratory (NSRL), Brookhaven National Laboratory"
+  },
+  "experiment": {
+    "radiationType": "SimGCRSim — Simplified Galactic Cosmic Ray Simulation",
+    "radiationSimulationReference": "Simonsen LC, Slaba TC, Guida P, Rusek A (2020). PLoS Biol 18(5): e3000669. https://doi.org/10.1371/journal.pbio.3000669",
+    "nsrlProtocolUrl": "https://www.bnl.gov/nsrl/userguide/simgcrsim.php",
+    "totalBiologicalSamples": 25,
+    "pooledControlSamples": 3
+  },
+  "treatmentGroups": [
+    {
+      "code": "HU0",
+      "label": "Hindlimb Unloaded",
+      "hindlimbUnloading": "Hindlimb Unloaded",
+      "ionizingRadiation": "Sham-irradiated (0 Gy)",
+      "absorbedDoseGy": 0,
+      "sampleCount": 5,
+      "sampleIds": [
+        "GCR064",
+        "GCR069",
+        "GCR070",
+        "GCR072",
+        "GCR086"
+      ]
+    },
+    {
+      "code": "WB0",
+      "label": "Normally Loaded (Weight-bearing)",
+      "hindlimbUnloading": "Normally Loaded Control",
+      "ionizingRadiation": "Sham-irradiated (0 Gy)",
+      "absorbedDoseGy": 0,
+      "sampleCount": 5,
+      "sampleIds": [
+        "GCR078",
+        "GCR079",
+        "GCR080",
+        "GCR090",
+        "GCR091"
+      ]
+    },
+    {
+      "code": "HU0.5",
+      "label": "Hindlimb Unloaded",
+      "hindlimbUnloading": "Hindlimb Unloaded",
+      "ionizingRadiation": "mixed radiation",
+      "absorbedDoseGy": 0.5,
+      "sampleCount": 5,
+      "sampleIds": [
+        "GCR051",
+        "GCR055",
+        "GCR056",
+        "GCR057",
+        "GCR059"
+      ]
+    },
+    {
+      "code": "WB0.5",
+      "label": "Normally Loaded (Weight-bearing)",
+      "hindlimbUnloading": "Normally Loaded Control",
+      "ionizingRadiation": "mixed radiation",
+      "absorbedDoseGy": 0.5,
+      "sampleCount": 5,
+      "sampleIds": [
+        "GCR061",
+        "GCR075",
+        "GCR076",
+        "GCR081",
+        "GCR082"
+      ]
+    },
+    {
+      "code": "HU1.5",
+      "label": "Hindlimb Unloaded",
+      "hindlimbUnloading": "Hindlimb Unloaded",
+      "ionizingRadiation": "mixed radiation",
+      "absorbedDoseGy": 1.5,
+      "sampleCount": 5,
+      "sampleIds": [
+        "GCR058",
+        "GCR065",
+        "GCR066",
+        "GCR068",
+        "GCR093"
+      ]
+    }
+  ]
+}

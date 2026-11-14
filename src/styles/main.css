@@ -176,3 +176,114 @@ kbd { background: #0f172a; border: 1px solid #475569; border-radius: 4px; paddin
   body[data-print-mode="teacher"] #info-dialog a { color: #000 !important; text-decoration: underline; }
   body[data-print-mode="teacher"] #info-dialog::backdrop { background: transparent !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NEW PANELS — Space Weather Dashboard, Mission History, Leaderboard,
+   Research Dashboard (added by ARES-7 upgrade)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Shared provenance / kicker labels */
+.sw-prov.real, .nasa-label { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border-radius:3px; background:rgba(56,189,248,.12); color:#38bdf8; border:1px solid rgba(56,189,248,.35); }
+.sw-prov.sim { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border-radius:3px; background:rgba(251,191,36,.12); color:#fbbf24; border:1px solid rgba(251,191,36,.3); }
+.sw-prov.pending-label, .edu-label { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border-radius:3px; background:rgba(167,139,250,.12); color:#a78bfa; border:1px solid rgba(167,139,250,.3); }
+.panel-kicker { display:block; font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+
+/* NASA Space Weather Dashboard */
+.nasa-dashboard-dialog, .history-dialog, .leaderboard-dialog, .research-dialog { max-width:min(860px,96vw); }
+.sw-meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:10px 0 14px; border-bottom:1px solid var(--line); margin-bottom:16px; }
+.sw-sync-time { font-size:12px; color:var(--muted); margin-left:auto; }
+.sw-section { margin-bottom:24px; }.sw-section h3 { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); margin:0 0 10px; }
+.sw-count { font-size:12px; padding:2px 8px; border-radius:10px; background:rgba(255,255,255,.08); color:#94a3b8; font-weight:700; letter-spacing:0; text-transform:none; }
+.sw-event-card { border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#0f1929; margin-bottom:10px; }
+.sw-event-header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.sw-class-badge { font-size:18px; font-weight:900; border:1.5px solid; border-radius:6px; padding:3px 10px; letter-spacing:.04em; }
+.sw-event-id { font-size:12px; color:#94a3b8; word-break:break-all; }
+.sw-event-id a { color:inherit; text-decoration:underline dotted; }
+.sw-event-dl { display:grid; grid-template-columns:auto 1fr; gap:5px 14px; font-size:13px; margin:0 0 8px; }
+.sw-event-dl dt { color:var(--muted); font-weight:700; white-space:nowrap; }
+.sw-event-dl dd { color:#cbd5e1; margin:0; word-break:break-all; }
+.sw-disclaimer { font-size:12px; color:#64748b; margin:8px 0 0; font-style:italic; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.sw-offline, .sw-loading { padding:20px; border:1px solid var(--line); border-radius:10px; background:#0f1929; color:var(--muted); }
+.sw-none { color:var(--muted); font-size:14px; padding:12px 0; }
+.sw-more { font-size:12px; color:#64748b; margin-top:4px; }
+.sw-attribution { font-size:12px; color:#64748b; padding-top:14px; border-top:1px solid var(--line); }
+.sw-attribution a { color:#38bdf8; }
+.osdr-link { font-size:12px; color:#38bdf8; margin-left:auto; text-decoration:none; }
+.osdr-link:hover { text-decoration:underline; }
+
+/* Mission History */
+.history-scroll { overflow-x:auto; }
+.history-table { width:100%; border-collapse:collapse; font-size:13px; }
+.history-table th { text-align:left; padding:8px 12px; color:var(--muted); font-weight:700; letter-spacing:.05em; font-size:11px; text-transform:uppercase; border-bottom:1px solid var(--line); white-space:nowrap; }
+.history-table td { padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.05); color:#cbd5e1; vertical-align:middle; }
+.history-row:hover td { background:rgba(255,255,255,.03); }
+.history-stars { color:var(--gold); font-size:16px; letter-spacing:.1em; white-space:nowrap; }
+.history-notice { padding:20px; color:var(--muted); font-size:14px; border:1px solid var(--line); border-radius:10px; }
+.history-notice code { color:#38bdf8; background:rgba(56,189,248,.1); padding:2px 6px; border-radius:4px; font-size:12px; }
+
+/* Leaderboard */
+.leaderboard-table th, .leaderboard-table td { white-space:nowrap; }
+.lb-rank { font-size:18px; text-align:center; }
+.lb-name { display:flex; align-items:center; gap:8px; }
+.lb-avatar { border-radius:50%; width:24px; height:24px; object-fit:cover; }
+.lb-avatar-placeholder { font-size:16px; }
+.lb-you { font-size:11px; color:#38bdf8; font-weight:700; letter-spacing:.05em; }
+.lb-stars { color:var(--gold); font-size:15px; letter-spacing:.08em; }
+.lb-score { font-weight:800; color:#f8fafc; }
+.leaderboard-me td { background:rgba(56,189,248,.07); }
+.lb-my-rank { font-size:14px; color:var(--muted); padding:0 0 14px; }
+.lb-my-rank strong { color:#f8fafc; }
+
+/* NASA Research Dashboard */
+.research-body { display:flex; flex-direction:column; gap:0; }
+.osdr-banner { display:flex; align-items:center; gap:14px; padding:10px 0 16px; border-bottom:1px solid var(--line); margin-bottom:16px; }
+.osdr-section { margin-bottom:24px; }
+.osdr-section h3 { font-size:14px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); margin:0 0 12px; display:flex; align-items:center; gap:10px; }
+.osdr-dl { display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:13px; margin:0; }
+.osdr-dl.two-col { grid-template-columns:repeat(2,auto 1fr); }
+.osdr-dl dt { color:var(--muted); font-weight:700; white-space:nowrap; }
+.osdr-dl dd { color:#cbd5e1; margin:0; }
+.osdr-dl a { color:#38bdf8; }
+.osdr-two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.osdr-two-col h4 { font-size:12px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin:0 0 8px; }
+.osdr-viz-note { font-size:12px; color:#64748b; margin:0 0 12px; }
+.osdr-groups { display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+.osdr-group-row { display:grid; grid-template-columns:260px 1fr; gap:10px; align-items:center; }
+.osdr-group-info { display:flex; align-items:center; gap:8px; }
+.osdr-group-code { font-weight:900; font-size:14px; letter-spacing:.04em; min-width:36px; }
+.osdr-group-label { font-size:12px; color:var(--muted); }
+.osdr-group-n { font-size:11px; color:#64748b; white-space:nowrap; }
+.osdr-bar-wrap { display:flex; align-items:center; gap:10px; }
+.osdr-bar { height:14px; border-radius:3px; min-width:4px; transition:width .4s ease; }
+.osdr-dose-label { font-size:12px; color:#94a3b8; white-space:nowrap; }
+.osdr-group-detail { font-size:11px; color:#64748b; }
+.osdr-group-legend { font-size:12px; color:#64748b; padding:8px 0; line-height:2; }
+.osdr-dose-disclaimer { border:1px solid rgba(251,191,36,.25); border-radius:8px; padding:12px 14px; background:rgba(251,191,36,.05); font-size:12px; color:#94a3b8; margin-top:8px; }
+.osdr-dose-disclaimer strong { color:#fbbf24; }
+.osdr-availability { display:flex; flex-direction:column; gap:12px; }
+.osdr-avail-item { display:flex; gap:14px; padding:14px; border-radius:10px; border:1px solid var(--line); }
+.avail-yes { border-color:rgba(52,211,153,.3); background:rgba(52,211,153,.05); }
+.avail-pending { border-color:rgba(100,116,139,.3); background:rgba(100,116,139,.05); }
+.avail-icon { font-size:20px; color:var(--green); flex-shrink:0; margin-top:2px; }
+.avail-pending .avail-icon { color:#64748b; }
+.osdr-avail-item strong { display:block; color:#f8fafc; font-size:14px; margin-bottom:4px; }
+.osdr-avail-item p { font-size:13px; color:var(--muted); margin:0 0 6px; }
+.research-cards { display:flex; flex-direction:column; gap:12px; }
+.research-card { border:1px solid var(--line); border-radius:10px; padding:16px; background:#0f1929; }
+.research-card h4 { font-size:13px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#38bdf8; margin:0 0 10px; }
+.research-card-body { display:flex; flex-direction:column; gap:10px; }
+.research-card-section { display:flex; flex-direction:column; gap:5px; }
+.rc-label { font-size:10px; }
+.research-card-section p { font-size:13px; color:#94a3b8; margin:0; }
+.research-card-disclaimer { font-size:11px; color:#64748b; padding:6px 10px; border-radius:6px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); }
+.research-card-disclaimer small { display:block; }
+.osdr-attribution { font-size:12px; color:#64748b; padding-top:14px; border-top:1px solid var(--line); }
+.osdr-attribution a { color:#38bdf8; }
+
+/* Responsive overrides for new dialogs */
+@media (max-width:760px) {
+  .osdr-two-col { grid-template-columns:1fr; }
+  .osdr-group-row { grid-template-columns:1fr; }
+  .osdr-dl.two-col { grid-template-columns:auto 1fr; }
+  .nasa-dashboard-dialog, .history-dialog, .leaderboard-dialog, .research-dialog { max-width:100vw; margin:0; border-radius:0; }
+}
