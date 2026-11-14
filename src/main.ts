@@ -5,6 +5,9 @@ import { INITIAL_STATE, executeSol, missionEnded, missionStars, planBudget, type
 import { hashSeed } from './sim/rng'
 import { OutpostScene, type StationKey } from './scene/Scene'
 import { Ui, type MissionView } from './ui/ui'
+import { MissionHistory } from './ui/missionHistory'
+import { Leaderboard } from './ui/leaderboard'
+import { NasaDashboard } from './ui/nasaDashboard'
 import { outpostTuning } from './game/outpostTuning'
 
 const root = document.querySelector<HTMLElement>('#app')
@@ -243,6 +246,11 @@ async function syncDonki(): Promise<void> {
   }
 }
 
+
+const nasaDashboard = new NasaDashboard(root)
+const leaderboard = new Leaderboard(root)
+const missionHistory = new MissionHistory(root)
+
 const actions = {
   start: startMission,
   allocation: (next: Allocation) => { allocation = { shield: clampPower(next.shield), bio: clampPower(next.bio), hab: clampPower(next.hab) }; refreshScene(); ui.render(model()) },
@@ -260,6 +268,10 @@ const actions = {
   closeModal: () => { safeWrite('redline.onboardingSeen', '1'); syncFrameLoop() },
   syncDonki,
   demo: () => { demoActive ? stopDemo() : startJudgeDemo() },
+
+openNasaDashboard: () => { void nasaDashboard.open() },
+openLeaderboard: () => { void leaderboard.open() },
+openHistory: () => { void missionHistory.open() },
 }
 ui = new Ui(root, actions)
 try {

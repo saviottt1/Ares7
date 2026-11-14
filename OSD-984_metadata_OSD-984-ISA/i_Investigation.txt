@@ -1,0 +1,114 @@
+ONTOLOGY SOURCE REFERENCE
+Term Source Name	EFO	NCIT	CRO	OBI	RBO	MESH
+Term Source File	http://data.bioontology.org/ontologies/EFO			http://data.bioontology.org/ontologies/OBI		
+Term Source Version	132			29		
+Term Source Description	Experimental Factor Ontology			Ontology for Biomedical Investigations		
+INVESTIGATION
+Investigation Identifier	
+Investigation Title	
+Investigation Description	
+Investigation Submission Date	
+Investigation Public Release Date	
+INVESTIGATION PUBLICATIONS
+Investigation PubMed ID
+Investigation Publication DOI
+Investigation Publication Author List
+Investigation Publication Title
+Investigation Publication Status
+Investigation Publication Status Term Accession Number
+Investigation Publication Status Term Source REF
+INVESTIGATION CONTACTS
+Investigation Person Last Name
+Investigation Person First Name
+Investigation Person Mid Initials
+Investigation Person Email
+Investigation Person Phone
+Investigation Person Fax
+Investigation Person Address
+Investigation Person Affiliation
+Investigation Person Roles
+Investigation Person Roles Term Accession Number
+Investigation Person Roles Term Source REF
+STUDY
+Study Identifier	OSD-984
+Study Title	Low-dose Simulated Galactic Cosmic Radiation Exposure After Hindlimb Unloading Has Long-term Impact on Skeletal Muscle Metabolic Proteins
+Study Description	Spaceflight stressors, including microgravity-induced unloading and galactic cosmic radiation (GCR), acutely disrupt mitochondrial function and contribute to skeletal muscle atrophy. The long-term recovery of muscle mitochondria following combined unloading and radiation exposure remains poorly understood. We investigated protein abundance changes 9-months after recovery from combined unloading and radiation exposure.
+Study Submission Date	15-Apr-2026
+Study Public Release Date	21-Sep-2026
+Study File Name	s_OSD-984.txt
+Comment[Acknowledgments]	
+Comment[DOI]	10.26030/wc0k-st23
+Comment[Data Source Accession]	
+Comment[Data Source Link]	
+Comment[Experiment Platform]	
+Comment[Flight Program]	
+Comment[Funding]	The parent project was funded by a NASA Grant 80NSSC21K0544 (to J.C.C.). Sample analysis was funded through the Robert and Patricia Hines Endowment (to N.M.J.).
+Comment[Identifiers]	
+Comment[Managing NASA Center]	
+Comment[Mission End]	
+Comment[Mission Link]	
+Comment[Mission Name]	
+Comment[Mission Start]	
+Comment[Project Identifier]	Simplified_Galactic_Cosmic_Ray_Simulation_Irradiation, Multiple_Radiation_Types, Heavy_Ion_HZE_Irradiation, High_Dose_Irradiation
+Comment[Project Link]	
+Comment[Project Title]	
+Comment[Project Type]	Ground Study
+Comment[Space Program]	NASA
+Comment[Study Grant Number]	
+STUDY DESIGN DESCRIPTORS
+Study Design Type
+Study Design Type Term Accession Number
+Study Design Type Term Source REF
+STUDY PUBLICATIONS
+Study PubMed ID	
+Study Publication DOI	10.1152/ajpregu.00014.2026
+Study Publication Author List	Martone Matthew, Irving Brian A., Spielmann Guillaume, Johannsen Neil M., Robinson Matthew M., Chancellor Jeffery C., Allaway Heather C. M.
+Study Publication Title	Low-dose simulated galactic cosmic radiation exposure after hindlimb unloading has long-term impact on skeletal muscle metabolic proteins in female mice
+Study Publication Status	published
+Study Publication Status Term Accession Number	http://www.ebi.ac.uk/efo/EFO_0001796
+Study Publication Status Term Source REF	EFO
+Comment[Study Publication Link]	https://doi.org/10.1152/ajpregu.00014.2026
+STUDY FACTORS
+Study Factor Name	Ionizing Radiation	Hindlimb Unloading	Absorbed Radiation Dose
+Study Factor Type	ionizing radiation	Hindlimb Suspension	absorbed radiation dose
+Study Factor Type Term Accession Number	http://purl.obolibrary.org/obo/RBO_00000116	http://purl.bioontology.org/ontology/MESH/D019417	http://purl.obolibrary.org/obo/RBO_00005010
+Study Factor Type Term Source REF	RBO	MESH	RBO
+STUDY ASSAYS
+Study Assay File Name	a_OSD-984_protein-expression-profiling_mass-spectrometry_Orbitrap Exploris 480 (Thermo Fisher).txt
+Study Assay Measurement Type	protein expression profiling
+Study Assay Measurement Type Term Accession Number	obo:OBI_0000615
+Study Assay Measurement Type Term Source REF	OBI
+Study Assay Technology Type	mass spectrometry
+Study Assay Technology Type Term Accession Number	obo:OBI_0000470
+Study Assay Technology Type Term Source REF	OBI
+Study Assay Technology Platform	Orbitrap Exploris 480 (Thermo Fisher)
+STUDY PROTOCOLS
+Study Protocol Name	irradiation protocol	Animal Husbandry	sample collection	Extraction	Mass Spectrometry
+Study Protocol Type	see protocol description	Animal Husbandry	sample collection	Extraction	Mass Spectrometry
+Study Protocol Type Term Accession Number	https://osdr.nasa.gov/	http://purl.bioontology.org/ontology/MESH/D000822			
+Study Protocol Type Term Source REF		MESH	RBO	RBO	RBO
+Study Protocol Description	"The Brookhaven National Laboratory Institutional Animal Care and Use Committees of (BNL; AUP-523) and the University of Arkansas for Medical Sciences (UAMS; AUP-4078) approved the parent study. The parent study protocol has been previously reported. Briefly, 6-month-old male and female C57Bl/6J mice (n equals 50/sex) arrived at the BNL. After acclimating for 1 week, animals were randomized to an absorbed dose of simGCRsim (0Gy, 0.5Gy, or 1.5Gy). Subgroups of mice for 0Gy and 0.5Gy (and all 1.5Gy animals) were hindlimb unloaded (HU) for 5 days before radiation exposure; for a total of 5 treatment groups (WB0, HU0, WB0.5, HU0.5, HU1.5). Animals received their randomized radiation dose over 7.92 hrs (0.5Gy) or 24 hrs (1.5Gy) or were placed in the beamline but not irradiated (0Gy), with animals in HU irradiated on the final day of unloading. One day after irradiation, HU animals were returned to weight-bearing (WB) conditions, and all animals were transported to UAMS. At UAMS, animals remained WB and were housed in standard vivarium cages for 9-months before euthanasia. Throughout the study, animals had ad libitum access to food and water.
+
+NSRL GCR and SPE simulations are designed to approximate the chronic mixed field exposures in space by means of sequential acute exposures to a variety of ion/energy combinations.  The exposure protocols are on the NSRL website: https://www.bnl.gov/nsrl/userguide/simgcrsim.php (SimGCRSim).  The dose can be administered either in a single series of exposures lasting approximately an hour or in daily fractions over several weeks.  The GCR simulations are described in detail here: Simonsen LC, Slaba TC, Guida P, Rusek A (2020) NASA’s first ground-based Galactic Cosmic Ray Simulator: Enabling a new era in space radiobiology research. PLoS Biol 18(5): e3000669. https://doi.org/10.1371/journal.pbio.3000669"	One day after irradiation, HU animals were returned to weight-bearing (WB) conditions, and all animals were transported to UAMS. At UAMS, animals remained WB and were housed in standard vivarium cages for 9-months before euthanasia. Throughout the study, animals had ad libitum access to food and water.	Animals were anesthetized with isoflurane until there were no longer pain reflexes and subsequently underwent thoracotomy. Five random samples were selected from each of the 5 groups (WB0, WB0.5, HU0, HU0.5, and HU1.5) of the female mice (n equals 25) to ensure statistical power and improve reliability of results. Skin was sprayed with 70% ETOH to reduce fur spray; skin was removed gently from the leg; using disenfected forceps and scissors, left gastrocnemius muscle was disconnected from the ankle and reflected back to the knee; The soleus muscle was removed from the now exposed underside of the gastronemius muscle; The gastrocnemius muscle was then carefully disconnected from the knee; the gastrocnemius was weighed after being blotted off; the sample was placed into a cryotube and then snap frozen in liquid nitrogen; Following random selection, samples were powderized using a biopulvarizer kept on liquid nitrogen; once pulvarized the sample was place back in a cryotube and returned to storage until shipping for analysis.	20-25mg of each powderized frozen sample were aliquoted and shipped on dry ice to the IDeA National Resource for Quantitative Proteomics at UAMS. Sample preparation and mass spectrometry were conducted according to the standard protocols of the IDeA National Resource for Quantitative Proteomics. Sample preparation included trypsin digestion of frozen tissue samples and extraction of proteins. The pooled controls are made by combining a few uL from each sample. They are run at the beginning middle and end of the experiment to check the technical variation.	Mass spectrometry was conducted using an Ultimate 3000 autosampler to pull up to 1ug of peptide sample and loading it onto a 0.5cm x 75um trapping column. Peptides were separated by an acetonitrile gradient on an analytical column, where the Exploris 480 (Orbitrap Exploris 480, Thermo Fisher) scans samples at 60,000 resolutions, followed by 50x 12 m/z DIA spectra.
+Study Protocol URI					
+Study Protocol Version					
+Study Protocol Parameters Name	particle charge;exposure duration;ionizing radiation energy;linear energy transfer;absorbed radiation dose rate;ionizing radiation categorized by source;ionizing radiation device	Diet;light cycle;Feeding Schedule;habitat;duration	Sample Preservation Method;Sample Storage Temperature;Age at Sample Collection;Euthanasia Method;Animal Weight at Euthanasia;Sample Wet Weight at Collection	Sample Weight Sent for Analysis	Instrument;Chromatography;Ion Source;Dissociation;Analyzer;Raw Spectral Data File (mzML)
+Study Protocol Parameters Name Term Accession Number	http://purl.obolibrary.org/obo/RBO_00005040;http://purl.obolibrary.org/obo/NCIT_C83280;http://purl.obolibrary.org/obo/RBO_00005012;http://purl.obolibrary.org/obo/RBO_00010013;http://purl.obolibrary.org/obo/RBO_00005011;http://purl.obolibrary.org/obo/RBO_00000001;http://purl.obolibrary.org/obo/RBO_00005070	http://purl.bioontology.org/ontology/MESH/D004032;http://purl.obolibrary.org/obo/NCIT_C90419;https://osdr.nasa.gov/;http://purl.obolibrary.org/obo/ENVO_01000739;http://www.ebi.ac.uk/efo/EFO_0000433	https://genelab-data.ndc.nasa.gov/;https://genelab-data.ndc.nasa.gov/;https://osdr.nasa.gov/;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl;https://osdr.nasa.gov/;https://osdr.nasa.gov/	https://osdr.nasa.gov/	;;;;;https://osdr.nasa.gov/
+Study Protocol Parameters Name Term Source REF	RBO;NCIT;RBO;RBO;RBO;RBO;RBO	MESH;NCIT;;;EFO	;;;NCIT;;		;;;;;
+Study Protocol Components Name					
+Study Protocol Components Type					
+Study Protocol Components Type Term Accession Number					
+Study Protocol Components Type Term Source REF					
+STUDY CONTACTS
+Study Person Last Name	Allaway	Chancellor	Martone	Spielmann	Johannsen	Irving	Robinson
+Study Person First Name	Heather	Jeffery	Matthew	Guillaume	Neil	Brian A.	Matthew
+Study Person Mid Initials							
+Study Person Email	hallaway@lsu.edu				njohan1@lsu.edu	brianairving@lsu.edu	
+Study Person Phone							
+Study Person Fax							
+Study Person Address							
+Study Person Affiliation	Louisiana State University	Texas A and M University	Louisiana State University	Louisiana State University	Louisiana State University	Louisiana State University	Oregon State University
+Study Person Roles	conceptualization role	conceptualization role	formal analysis role	conceptualization role	conceptualization role	conceptualization role	conceptualization role
+Study Person Roles Term Accession Number	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology
+Study Person Roles Term Source REF	CRO	CRO	CRO	CRO	CRO	CRO	CRO
+Comment[orcidIdentifier]	0000-0003-2023-9337			0000-0001-7024-0972	0000-0003-4905-4491	0000-0002-4131-9523	
